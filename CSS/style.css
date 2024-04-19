@@ -1,0 +1,2250 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    border: none;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+:root {
+    --cor-padrao-fonte: #fff;
+    --cor-link-topo: #fff;
+    --cor-font-preto: #000;
+    --cor-botao-pesquisa-top: #ff5361;
+    --cor-hover-btn: #96045e;
+    --cor-fonte-sub-titulo: #333;
+    --cor-hover-ganhar-dinheiro: #05af2a;
+    --cor-topo-celular: #000;
+    --borda-busca-radape-celular: #ddd;
+    --border-lista-imoveis: #ccc;
+    --cor-info-imovel: #555;
+    --borda-lateral-direita: #999;
+    --primary-color: #ff385c;
+    --gray-color: #d5d5d5;
+    --gray-font-color: #717171;
+    --gray-light-color: #efefef;
+    --white-color: #fff;
+    --black-color: #222;
+
+}
+
+body {
+    max-width: 2135px; /* Define um max-width para o corpo do site */
+    margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 20px 7%; */
+}
+
+/* HEADER*/ 
+.cabecalho-responsivo {
+  display: none;
+}
+.app_header{
+    display: none;
+}
+.navbar_reservar_responsiva{
+    display: none;
+}
+
+.logo {
+    width: 100px;
+    cursor: pointer;
+}
+
+.logo2 {
+    display: none;
+}
+
+@media screen and (max-width: 880px) {
+    .logo {
+        display: none;
+    }
+
+    .logo2 {
+        display: block;
+        width: 5%;
+        cursor: pointer;
+    }
+}
+
+
+.container {
+    padding: 0 9%;
+    height: 5rem;
+    margin: 0 auto;
+
+    gap: 1.5rem;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--gray-color);
+}
+
+.cabecalho__busca {
+    display: flex;
+    position: relative;
+    width: 400px;
+    left: 40px;
+    gap: 10px;
+    border: 1px solid rgb(209, 209, 209);
+    border-radius: 25px;
+    justify-content: center;
+    padding: 10px 1px 10px 20px;
+}
+
+.cabecalho__busca button {
+    background-color: rgb(255, 255, 255);
+    padding-right: 1px;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+}
+
+.cabecalho__busca .cabecalho__busca__hospedes {
+    color: rgba(112, 97, 97, 0.733);
+}
+
+.cabecalho__busca p {
+    display: flex;
+    justify-content: center;
+    padding: 2px 2px 2px 2px;
+    font-size: 19px;
+    color: rgb(151, 151, 151);
+}
+
+.busca__div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 25px;
+    background-color: #ff385c;
+}
+
+.busca__div span {
+    font-size: 16px;
+    color: aliceblue;
+}
+
+.cabecalho__publicacao {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.cabecalho__publicacao button {
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 0.7rem 0.8rem;
+    transition: all 0.3s;
+    border-radius: 1.5rem;
+    color: rgb(48, 45, 45);
+    background-color: transparent;
+}
+
+.cabecalho__publicacao span {
+    color: rgb(48, 45, 45);
+    font-size: 19px;
+    position: relative;
+    right: 5px;
+}
+
+.menu-container {
+    position: relative;
+}
+
+/* restante do seu CSS */
+
+
+.cabecalho__usuario {
+    display: flex;
+    gap: 5px;
+
+    border: 1px solid rgba(48, 45, 45, 0.185);
+    border-radius: 25px;
+    color: rgb(48, 45, 45);
+    padding: 5px 10px;
+
+    cursor: pointer;
+}
+
+.cabecalho__usuario:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+}
+
+.dropdown-menu {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background-color: #ffffff;
+    /* fundo branco */
+    border-radius: 12px;
+    /* bordas arredondadas */
+    box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.08);
+    /* sombra ao redor do menu */
+    padding: 10px;
+    /* algum espaço interno */
+    position: absolute;
+    top: 100%;
+    /* isso vai posicionar o menu suspenso logo abaixo do .menu-container */
+    left: 30;
+    /* isso vai alinhar o menu suspenso à esquerda do .menu-container */
+
+    right: 0;
+    /* alinhar à direita */
+    top: 120%;
+    /* colocar logo abaixo do elemento pai */
+    width: 250px;
+    /* largura fixa */
+    z-index: 1000;
+    /* para garantir que o menu suspenso apareça acima de outros elementos */
+}
+
+.dropdown-menu.active {
+    display: block;
+    opacity: 1;
+}
+
+.dropdown-menu a {
+    color: #484848;
+    /* texto preto */
+    text-decoration: none;
+    /* sem sublinhado */
+    display: block;
+    /* para que o link ocupe toda a linha */
+    padding: 8px 0;
+    /* algum espaço vertical entre os links */
+    font-size: 14px;
+    /* tamanho da fonte */
+}
+
+.dropdown-menu a:hover {
+    background-color: #f7f7f7;
+    /* fundo cinza claro quando o mouse passa por cima */
+}
+
+.dropdown-menu a:first-child {
+    font-weight: bold;
+}
+
+.linha-hr-drop {
+    position: absolute;
+    width: calc(100% + 0.45px);
+    /* Ajuste para cobrir o espaço à esquerda do menu dropdown */
+    left: -0.4px;
+    /* Deslocamento à esquerda para compensar a expansão */
+    height: 1px;
+    background-color: var(--border-lista-imoveis);
+}
+
+
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* iniciando css exclusivo do imoveis */
+
+.imoveis-detalhes {
+    padding: 0 9%;
+}
+
+.imovel-titulo {
+    margin-top: 50px !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.imovel-titulo h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+    margin-bottom: -25px;
+}
+
+.imovel-titulo .linha {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.imovel-titulo span {
+    margin: 0 20px;
+}
+
+.imovel-titulo ion-icon {
+    color: var(--cor-botao-pesquisa-top);
+    font-size: 14px;
+}
+
+.vermelho {
+    stroke: red;
+}
+
+
+/*Compartilhar e Salvar*/
+
+.box-title--btns {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: -25px;
+}
+
+.box-title--btn {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.box-title--btn a {
+    margin-left: 6px;
+    font-size: 1rem;
+    color: #222;
+    text-decoration: underline;
+}
+
+
+/*Fim Compartilhar e Salvar*/
+
+.galeria button {
+
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    border: 1px solid var(--black-color);
+    background-color: var(--white-color);
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+
+}
+.galeria_responsiva{
+    display: none;
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 180px 180px;
+    gap: 10px;
+    margin-top: 1.5rem;
+    position: relative;
+}
+
+.galeria img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.galeria .galeria-img-1 {
+    grid-row: 1/3;
+    grid-column: 1/3;
+}
+
+.galeria .galeria-img-1 img {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.galeria .galeria-img-3 img {
+    border-top-right-radius: 15px;
+}
+
+.galeria .galeria-img-5 img {
+    border-bottom-right-radius: 15px;
+}
+
+
+.list-container {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.coluna-esquerda {
+    flex-basis: 60%;
+    padding-right: 20px;
+    /* Adicione algum espaçamento à direita para separar do formulário */
+}
+
+.coluna-esquerda h1 {
+    color: var(--cor-fonte-sub-titulo);
+    /* font-weight: 600; */
+    margin-bottom: 30px;
+}
+
+.pequenos-detalhes h2 {
+    font-weight: 600;
+    margin-top: 31px;
+    font-size: 25px;
+
+}
+
+.pequenos-detalhes h4 {
+    text-align: right;
+    font-size: 22px;
+}
+
+/*Icones e css de detalhes breves anfitrião e casa*/
+.information_left {
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
+}
+
+.information_left div {
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0, 3px;
+}
+
+.information_left div:not(:first-child)::before {
+    content: "";
+    width: 3px;
+    height: 3px;
+    background: #222;
+    border-radius: 100%;
+}
+
+.information_left div:has(strong, a) {
+    font-weight: 500;
+}
+
+/* F*/
+
+.linha-hr {
+    width: 100%;
+    /* max-width: 800px; */
+    border: 0;
+    height: 1px;
+    background-color: var(--border-lista-imoveis);
+    margin: 20px 0 50px;
+}
+
+.locatario-miguel {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin-bottom: -5px;
+    margin-top: -25px;
+}
+
+.locatario-miguel-imagens {
+    position: relative;
+}
+
+.locatario-miguel-imagens img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.locatario-miguel-imagens svg {
+    opacity: 1;
+    position: absolute;
+    right: -0.3rem;
+    bottom: 0.3rem;
+}
+
+
+.locatario-miguel h2 {
+    /* font-weight: 580; */
+    font-size: medium;
+    margin-bottom: 5px;
+}
+
+.locatario-miguel p {
+    margin-bottom: 5px;
+    color: #555
+}
+
+.locatario-miguel ion-icon {
+    color: var(--cor-botao-pesquisa-top);
+}
+
+.tempo-estadia-miguel {
+    color: #555;
+    font-size: 0.9em;
+}
+
+.lista-detalhes {
+    list-style: none;
+    margin: 50px 0;
+}
+
+.lista-detalhes li {
+    position: relative;
+    margin-left: 50px;
+    font-size: 20px;
+    /* font-weight: 500; */
+    margin-bottom: 20px;
+    color: var(--cor-info-imovel)
+}
+
+.lista-detalhes h5 {
+    font-family: 'Roboto';
+    font-weight: bold;
+    color: #000;
+}
+
+.lista-detalhes span {
+    font-size: 16px;
+    font-weight: 400;
+    display: block;
+}
+
+.lista-detalhes li ion-icon {
+    position: absolute;
+    top: 5px;
+    left: -40px;
+}
+
+.informacoes__detalhes {
+    padding: 25px 0;
+    margin-top: -50px;
+}
+
+.informacoes__detalhes u {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.informacoes__detalhes .texto-fundo {
+    background-color: #F7F7F7;
+    padding: 16px;
+    margin: 8px 0 32px;
+    border-radius: 10px;
+}
+
+.informacoes__detalhes__texto {
+    font-size: 1.05rem;
+    word-spacing: 0.1rem;
+    line-height: 1.45rem;
+    margin-bottom: 20px;
+    font-weight: 50;
+}
+
+
+.imovel-desc {
+    font-size: 16px;
+    /* Tamanho da fonte reduzido */
+    line-height: 1.5;
+    /* Espaçamento entre linhas aumentado para melhor legibilidade */
+    margin-bottom: 20px;
+    color: #666;
+    /* Cor do texto mais clara */
+    max-width: 600px;
+    font-family: 'Roboto';
+}
+
+.imovel-desc h2,
+.imovel-desc h3 {
+    font-size: 20px;
+    /* Tamanho da fonte dos títulos aumentado */
+    margin-bottom: 10px;
+    color: #333;
+    /* Cor do texto mais escura para os títulos */
+}
+
+.imovel-desc ul {
+    margin-bottom: 10px;
+}
+
+.imovel-desc p {
+    margin-bottom: 10px;
+    font-size: 14px;
+    /* Tamanho da fonte dos parágrafos reduzido */
+}
+
+.local_dormir__caixa {
+    display: flex;
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    align-items: center;
+    /* Centraliza verticalmente */
+    gap: 5%;
+    margin-top: 3%;
+}
+
+.local_dormir__caixa .quarto {
+    padding: 26px;
+    border: 1px solid #c0c0c0;
+    border-radius: 10px;
+    /* width: 225px; */
+    box-shadow: .5px .5px 10px #d8d8d8;
+}
+
+.local_dormir__caixa .quarto h4 {
+    margin: 18px 0 11px;
+}
+
+.local_dormir__caixa .quarto p {
+    color: #717171;
+}
+
+.onde_vai_dormir {
+    display: none;
+}
+
+.local_dormir2 {
+    display: none;
+}
+
+#scrollToLastRoom {
+    background-color: #FFFFFF;
+    /* White */
+    border: 2px solid #000000;
+    /* Black */
+    color: #000000;
+    /* Black */
+    padding: 5px;
+    /* Reduzido de 10px para 5px */
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    border-radius: 50%;
+    /* Circular Button */
+    width: 30px;
+    /* Adicionado */
+    height: 30px;
+    /* Adicionado */
+    justify-content: center;
+    align-items: center;
+    /* Adicionado para centralizar verticalmente */
+}
+
+#scrollToLastRoom:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    /* Adiciona uma sombra ao redor do botão no hover */
+}
+
+/* .about {
+    margin: 40px 0;
+    color: #666;
+}
+
+.about h2 {
+    color: var(--cor-font-preto);
+}
+
+.about li {
+    position: relative;
+    list-style: none;
+    margin-left: 50px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: var(--cor-info-imovel);
+}
+
+.about span {
+    font-size: 16px;
+    font-weight: 400;
+    display: block;
+    margin-top: 5px;
+    /* Adiciona um espaço entre o ícone e o texto */
+/*
+}
+
+.about img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    color: #666;
+} */
+
+.amenities__meta_comodidades {
+    margin-top: -50px;
+    padding: 30px 0;
+}
+
+.amenities__meta_comodidades h2 {
+    padding: 18px 0;
+}
+
+.amenities__meta_comodidades ul {
+    padding: 28px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.amenities__meta_comodidades li {
+    width: 320px;
+    display: flex;
+    gap: 16px;
+    font-size: 1.05rem;
+    font-weight: 300;
+    align-items: center;
+}
+
+.amenities__meta_comodidades-botao {
+    width: 300px;
+    text-align: center;
+    padding: 16px;
+    font-weight: 500;
+}
+
+
+.edge-button {
+    background-color: #fff;
+    border: 1px solid #222222;
+    padding: 10px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.traco_no_meio {
+    text-decoration: line-through;
+}
+
+.calendario__container {
+    margin-top: -50px;
+    padding: 24px 0;
+}
+
+.calendario__container img {
+    width: 100%;
+}
+
+.calendario__container h2 {
+    padding: 8px 0;
+}
+
+.calendario__container > p {
+    color: #717171;
+    font-size: 0.9rem;
+    padding-bottom: 40px;
+}
+
+.calendario__container>div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 0;
+}
+
+.calendario__container i {
+    cursor: pointer;
+}
+
+.calendario__container u {
+    margin-top: -600px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.grid {
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: 50px;
+    font-size: 1.2em;
+    /* Ajuste este valor conforme necessário */
+}
+
+.calendario__card svg {
+    height: 19px;
+    width: 19px;
+}
+
+
+
+.coluna-direita {
+    position: relative;
+    width: 50%;
+    /* Ou qualquer largura desejada para a coluna direita */
+    float: right;
+    /* Posiciona a coluna à direita */
+    flex-basis: 35%;
+}
+
+.aluguel-form-container {
+    display: flex;
+    position: sticky;
+    width: 100% !important;
+    top: var(--navigation-bar-offset, 80px) !important;
+    z-index: 1 !important;
+    display: inline-block !important;
+    padding-right: 1px !important;
+    padding: 20px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.container__promocao {
+    display: flex;
+    margin: 32px 0;
+    align-items: start;
+    padding: 10%;
+    gap: 21px;
+    border: 1px solid #d4d3d3;
+    border-radius: 10px;
+}
+
+.container__promocao p {
+    color: #717171;
+    text-align: justify;
+    font-size: 0.9rem;
+    padding-top: 8px;
+}
+
+.container__reportar {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    color: #717171;
+}
+
+.container__reportar p {
+    text-decoration: underline;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.checa-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--cor-link-topo);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+
+}
+
+.checa-form label {
+    display: block;
+    margin-bottom: 8px;
+    /* Cor do texto dos rótulos */
+    font-weight: bold;
+}
+
+
+.checa-form div {
+    padding: 20px;
+    width: 100%;
+}
+
+.checa-form input,
+.checa-form select {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid var(--border-lista-imoveis);
+    border-radius: 4px;
+    outline: none;
+}
+
+.checa-form button {
+    width: 100%;
+    font-size: 16px;
+    background-color: var(--cor-botao-pesquisa-top);
+    border: 0;
+    outline: none;
+    border-radius: 8px;
+    color: var(--cor-padrao-fonte);
+    padding: 18px;
+    cursor: pointer;
+}
+
+.checa-form button:hover {
+    background-color: var(--cor-hover-ganhar-dinheiro);
+}
+
+.campo-pessoas {
+    flex: 1;
+}
+
+.mapa {
+    display: flex;
+    flex-direction: column;
+
+    border-top: 1px solid rgba(0, 0, 0, 0.24);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.24);
+    padding: 3rem 0;
+    margin-bottom: 40px;
+}
+
+.mapa iframe {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.mapa h3 {
+    font-size: 24px;
+    /* Reduzindo o tamanho da fonte do título */
+    font-weight: bold;
+    /* Mudando o peso da fonte para negrito */
+    margin-bottom: 20px;
+    /* Reduzindo o espaçamento inferior */
+    color: #333;
+    /* Definindo a cor do título */
+}
+
+.mapa b {
+    display: block;
+    font-size: 18px;
+    /* Ajustando o tamanho da fonte */
+    margin-bottom: 10px;
+    /* Reduzindo o espaçamento inferior */
+}
+
+.mapa p {
+    font-size: 16px;
+    /* Ajustando o tamanho da fonte */
+    line-height: 1.5;
+    /* Aumentando o espaçamento entre linhas */
+    margin-bottom: 10px;
+    /* Reduzindo o espaçamento inferior */
+    color: #666;
+    /* Definindo a cor do texto */
+}
+
+.container__avaliacoes {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.24);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.24);
+    padding: 2rem 0;
+    margin-bottom: 40px;
+}
+
+.cabecalho__avaliacoes ion-icon {
+    font-size: 1.8em;
+    /* Tamanho da fonte equivalente a um h1 */
+    color: var(--cor-botao-pesquisa-top);
+    /* Cor do ícone */
+    margin: 10px 1px;
+    /* Margem */
+    display: flex-end;
+    /* Alinhamento do ícone */
+    margin-right: 10px;
+}
+
+.cabecalho__avaliacoes {
+    display: flex;
+}
+
+.lista__avaliacoes {
+    display: flex;
+    gap: 20px;
+}
+
+.item__avaliacao {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-left: 1px solid var(--cor-fonte-sub-titulo);
+    padding: 0 1.5rem;
+    margin-bottom: 10px;
+}
+
+.primeiro__item {
+    border: none;
+    padding: 0 1.5rem 0 0;
+}
+
+.comentarios {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.locatario {
+    width: calc(50% - 20px);
+    margin-bottom: 40px;
+}
+
+.locatario h2 {
+    font-weight: 500;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    /* Alinha a imagem verticalmente com o texto */
+}
+
+.locatario img {
+    width: 80px;
+    height: 80px;
+    /* Adicionei uma altura para a imagem para manter o aspecto correto */
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.nome-foto {
+    display: flex;
+    /* Torna os elementos flexíveis */
+    align-items: center;
+    /* Alinha os itens verticalmente */
+}
+
+.nome-foto img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.nome-foto div {
+    flex-grow: 1;
+    /* Faz com que o conteúdo ocupe todo o espaço disponível */
+}
+
+.nome-foto div span {
+    font-weight: bold;
+    /* Adiciona negrito ao nome */
+    font-size: 24px;
+    /* Tamanho da fonte do nome */
+}
+
+.localizacao {
+    font-style: italic;
+    margin-top: 3px;
+    color: #777;
+    font-size: 14px;
+    grid-area: auto;
+    line-height: 18px;
+}
+
+.avaliacao {
+    margin-bottom: 5px;
+}
+
+.avaliacao span {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.tempo-estadia {
+    color: #555;
+}
+
+.comentario {
+    font-style: italic;
+    color: #333;
+    line-height: 1.4;
+}
+
+
+.rodape {
+    margin: 80px 0 10px;
+    text-align: center;
+}
+
+.rodape a {
+    text-decoration: none;
+    color: var(--cor-botao-pesquisa-top);
+    font-size: 22px;
+    margin: 0 10px;
+
+}
+
+.rodape hr {
+    background-color: var(--cor-botao-pesquisa-top);
+    height: 1px;
+    width: 100%;
+    border: 0;
+    margin: 20px 0;
+}
+
+.rodape p {
+    padding-bottom: 15px;
+}
+
+/* adicionando CSS de parte nao definida */
+
+#lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-direction: column;
+    z-index: 9999;
+    /* Ajuste a z-index conforme necessário */
+}
+
+
+#lightbox img {
+    max-width: 80%;
+    max-height: 60vh;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+}
+
+#close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 2;
+}
+
+#prev-btn,
+#next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #fff;
+    background-color: var(--cor-botao-pesquisa-top);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#prev-btn {
+    left: 10px;
+}
+
+#next-btn {
+    right: 10px;
+}
+
+#prev-btn:hover,
+#next-btn:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.thumbnail-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.thumbnail {
+    max-width: 50px;
+    width: 100px;
+    cursor: pointer;
+    margin-top: 40px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: 2px solid var(--cor-botao-pesquisa-top);
+    transition: opacity 0.3s;
+}
+
+.thumbnail:hover,
+.thumbnail.active-thumbnail {
+    opacity: 0.7;
+}
+
+/* CSS DO FORM*/
+
+.calculo-reserva {
+    width: 100% !important;
+    position: sticky !important;
+    top: var(--navigation-bar-offset, 80px) !important;
+    z-index: 1 !important;
+    display: inline-block !important;
+    padding-right: 1px !important;
+    padding: 20px;
+    background-color: transparent;
+
+    border-radius: 8px;
+    margin-top: 20px;
+    border-radius: 1rem;
+
+    padding: 1.5rem;
+    height: fit-content;
+}
+
+.formulario-container {
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 12px;
+    padding: 5%;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+}
+
+.calculo-reserva h3 {
+    font-size: 1.5rem;
+}
+
+.calculo-reserva span {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.calculo-reserva .reserva {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.reserva .check-in {
+    border-right: 1px solid var(--gray-font-color);
+}
+
+.reserva .check-in,
+.reserva .check-out {
+    grid-column: span 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+    padding: 0.4rem 1rem;
+    box-sizing: border-box;
+}
+
+.reserva label {
+    font-size: 0.7rem;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+}
+
+.reserva .guests {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+    border-top: 1px solid var(--gray-font-color);
+    padding: 0.4rem 1rem;
+    box-sizing: border-box;
+}
+
+.reserva .btn-reserva {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem 0;
+    border: none;
+    border-radius: 0.5rem;
+    background: rgb(255, 56, 92);
+    background: linear-gradient(150deg, rgba(255, 56, 92, 1) 0%, rgba(182, 58, 134, 1) 100%);
+    color: var(--white-color);
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.calculo-reserva .mensagem {
+    text-align: center;
+    font-size: 0.85rem;
+    margin: 1rem 0;
+    color: var(--gray-font-color);
+}
+
+.calculo-reserva .valores>div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.calculo-reserva .valores {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 0.98rem;
+    margin-top: 1.5rem;
+}
+
+.calculo-reserva .valores p:first-child {
+    text-decoration: underline;
+}
+
+.calculo-reserva .dividir {
+    border-bottom: 1px solid var(--gray-color);
+    margin: 2rem 0;
+}
+
+.calculo-reserva .total-valores p {
+    text-decoration: none !important;
+    font-weight: bold;
+    font-size: 90%;
+}
+
+.formulario-inputs-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Distribuir os itens uniformemente */
+    box-sizing: border-box; /* Incluir padding e borda na largura total */
+    margin-top: 3px;
+}
+
+.formulario-inputs-container div {
+    border: 1px solid #a4a4a4;
+    flex: 1 1 auto; /* Permitir que os itens cresçam e encolham */
+    padding: 3%;
+    box-sizing: border-box; /* Incluir padding e borda na largura total */
+}
+
+.formulario-inputs-container div:first-of-type {
+    border-radius: 5px 0 0 0;
+}
+
+.formulario-inputs-container div:nth-child(2) {
+    border-radius: 0 5px 0 0;
+}
+
+.formulario-inputs-container div:last-of-type {
+    border-radius: 0 0 10px 10px;
+    flex: 2 1 auto; /* Permitir que este item cresça mais do que os outros */
+}
+
+.formulario-inputs-container label {
+    display: block;
+}
+
+.formulario-inputs-container input {
+    border: none;
+    width: 100%; /* Garantir que o input ocupe toda a largura disponível */
+}
+
+
+/* adicionando footer novo */
+
+.hospedeiro_inferior {
+    padding: 30px 0;
+    margin: 30px 9vw;
+    background-color: #f0efe9;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    /* Alinha os itens da coluna esquerda à esquerda e os itens da coluna direita à direita */
+    gap: 20px;
+    /* Adiciona um espaçamento entre os itens */
+    padding: 30px 0;
+    border: 1px 0px solid #a4a4a4;
+    background-color: #f0efe9;
+    border-radius: 16px;
+}
+
+.coluna_esquerda_anfitriao {
+    margin-right: 10px;
+    /* Adiciona uma margem à direita para separar as colunas */
+    flex-grow: 1;
+    /* Permite que a coluna cresça conforme necessário */
+}
+
+.coluna_direita_anfitriao {
+    margin-left: 10px;
+    /* Adiciona uma margem à esquerda para separar as colunas */
+    flex-grow: 1;
+    /* Permite que a coluna cresça conforme necessário */
+}
+.avaliacoes-estrelas {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.avaliacoes-estrelas-span-1 {
+    margin: 5px 0 0 0;
+    font-weight: 800;
+}
+
+.avaliacoes-estrelas-span-2 {
+    margin: 0 0 10px 0;
+    font-weight: 400;
+    font-size: 70%;
+    
+}
+
+.avaliacoes-estrelas div {
+    border-bottom: 1px solid #e4dfdf;
+}
+
+
+.item-1-retangulo-lateral-esquerda {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Adiciona espaçamento entre os itens */
+}
+
+.item-1-retangulo-lateral-esquerda h2 {
+    font-size: 23px;
+}
+
+.item-1-retangulo-lateral-esquerda img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-1-retangulo-lateral-esquerda-span-1 {
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.item-1-retangulo-lateral-esquerda-span-2 {
+    font-size: 0.9rem;
+    font-weight: 400;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+
+
+.hospedeiro_inferior_apresentacao {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 15px;
+    /* Ajuste o padding para tornar a div mais quadrada */
+    background-color: #ffffff;
+    border-radius: 24px;
+    color: #222222;
+    box-shadow: 0px 6px 20px 0px #000000;
+    width: 80%;
+    /* Defina a largura desejada */
+    max-width: 500px;
+    /* Defina um valor máximo para evitar que a div fique muito larga */
+    margin: 0 auto;
+    /* Centralize a div horizontalmente */
+}
+
+
+.hospedeiro_inferior_apresentacao p {
+    color: #717171;
+    font-size: 16px;
+}
+
+.hospedeiro_inferior_apresentacao img {
+    width: 35%;
+    height: 6%;
+}
+
+.superhost_texto {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.superhost_texto p {
+    font-weight: bold;
+    color: #222222;
+}
+
+.trabalho_miguel {
+    display: flex;
+    align-items: center;
+    margin-left: 59px;
+    margin-top: 50px;
+    gap: 8px; /* Adicione espaço entre os itens */
+}
+
+.moradia_miguel {
+    display: flex;
+    align-items: center;
+    margin-left: 59px;
+    margin-top: 25px;
+    gap: 8px; /* Adicione espaço entre os itens */
+}
+.mostrarMais_miguel {
+    display: flex;
+    align-items: center;
+    margin-left: 59px;
+    margin-top: 45px;
+    gap: 8px; /* Adicione espaço entre os itens */
+}
+
+.miguel_superhost {
+    display: flex;
+    align-items: center;
+    margin-left: 59px;
+    margin-top: 25px;
+    gap: 8px; /* Adicione espaço entre os itens */
+    font-weight: bold;
+    font-size: 20px;
+    font-weight: 600;
+    grid-area: auto;
+    line-height: 24px;
+    color:#222222;
+}
+.miguel_superhost_descricao {
+    /* Remova display: flex; */
+    /* Adicione flex-direction: column; */
+    flex-direction: column;
+    align-items: center;
+    margin-left: 59px;
+    margin-top: 25px;
+    gap: 8px; /* Adicione espaço entre os itens */
+}
+
+.miguel_moradia_descricao{
+    flex-direction: column;
+    align-items: center;
+    margin-left: 59px;
+    margin-top: 25px;
+    gap: 8px; /* Adicione espaço entre os itens */
+    margin-bottom: -30px;
+
+}
+
+
+
+
+.hospedeiro_inferior .facilidades-botao {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 59px;
+    margin-top: 25px;
+    gap: 8px; /* Adicione espaço entre os itens */
+    width: 55%;
+    text-align: center;
+    padding: 14px;
+    background-color: #222222;
+    color: #ffffff;
+}
+
+.anfitriao_inferior_seguranca {
+    display: flex;
+    margin-left: 58px;
+    margin-top: 30px;
+    gap: 12px; /* Adicione espaço entre os itens */
+    align-items: center;
+    padding: 32px 0;
+    width: 50%;
+    position: relative; /* Adicione posição relativa */
+}
+
+.anfitriao_inferior_seguranca .simbolo{
+    margin-right: -29px;
+    /* width: 15%; */
+    width: 100px;
+}
+
+.anfitriao_inferior_seguranca::before {
+    content: ''; /* Adicione conteúdo vazio */
+    position: absolute; /* Posicione absolutamente em relação ao container pai */
+    top: 0; /* Posicione no topo */
+    left: 0; /* Posicione na esquerda */
+    width: 120%; /* Largura total */
+    height: 0.5px; /* Altura da linha */
+    background-color: #ccc; /* Cor da linha */
+}
+
+.anfitriao_inferior_seguranca p {
+    font-size: 0.7rem;
+}
+
+/* REGRAS */
+
+.diretrizes {
+    padding: 30px 0px;
+    margin: 30px 9vw;
+}
+
+.diretrizes h2 {
+    padding: 18px 0;
+}
+
+.diretrizes_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.diretrizes_container ul {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 25px;
+}
+
+.diretrizes_container a {
+    color: #000;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+/* FOOTER */
+
+footer {
+    background-color: #ecececd3;
+    border-top: 1px solid #afafaf;
+}
+
+.rodape__um,
+.rodape__tres,
+.rodape__quatro {
+    padding: 35px 9vw;
+}
+
+
+.rodape__um ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.rodape__um li:not(:last-of-type)::after {
+    content: '>';
+    padding-left: 4px;
+}
+
+.rodape__um a {
+    color: #000;
+}
+
+.rodape__um a:hover {
+    text-decoration: underline;
+}
+
+.rodape__tres {
+    /* padding: 20px 0; */
+    display: flex;
+    justify-content: start;
+    border-top: 1px solid #afafaf;
+}
+
+.rodape__tres ul {
+    flex: 1 1 400px;
+
+}
+
+.rodape__tres li {
+    padding: 8px 0;
+}
+
+.rodape__tres a {
+    color: #000;
+    font-size: 0.9rem;
+    opacity: 0.95;
+    width: 100%;
+
+}
+
+.rodape__tres a:hover {
+    text-decoration: underline;
+}
+
+.rodape__quatro {
+    border-top: 1px solid #afafaf;
+    border-top-width: 0 12vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rodape__quatro ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.rodape__quatro_esquerda li:not(:first-of-type) {
+    list-style: disc;
+    margin-left: 25px;
+}
+
+.rodape__quatro a {
+    text-decoration: none;
+    color: #222222;
+}
+
+.rodape__quatro_direita li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+    margin: 0 8px;
+}
+
+/* CSS */
+.navbar {
+    display: flex;
+    background-color: white;
+    padding: 10px;
+    justify-content: space-between;
+    padding: 0 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(104, 99, 99, 0.25);
+    height: 5rem;
+  }
+  
+  .navbar a {
+    color: black;
+    padding: 14px;
+    text-decoration: none; /* Remove o sublinhado */
+    font-weight: bold;
+  }
+  .navbar_itens a:hover {
+    border-bottom: 2px solid black;
+}
+
+.navbar_comentarios{
+    font-size: small;
+}
+
+.navbar_comentarios_txt{
+    color: #ccc;
+}
+
+.botao_conferir_data{
+    display: flex;
+    display: none;
+}
+
+  
+  .botao_conferir_data button {
+    align-items: center;
+    background: rgb(255, 56, 92);
+    background: linear-gradient(150deg, rgba(255, 56, 92, 1) 0%, rgba(182, 58, 134, 1) 100%);
+    border-radius: 10px;
+    color: #ffffff;
+    flex-direction: column;
+    gap: 8px;
+    margin: 25px 0px 0px 59px;
+    padding: 14px;
+    text-align: center;
+    margin-top: -1px;
+  }
+
+  /* Estilos para a barra de navegação fixa */
+.navbar-fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Certifique-se de que a barra de navegação está acima de outros elementos */
+    /* Adicione outros estilos conforme necessário */
+}
+
+.hidden {
+    display: none !important;
+}
+
+.visible {
+    display: flex;
+    
+}
+
+@media screen and (max-width: 1200px) {
+    header .container{
+        width: 94%;
+    }
+      .navbar {
+        flex-wrap: wrap;
+      }
+    
+      .navbar_itens {
+        order: 1; /* Move os itens para a segunda linha */
+      }
+    
+      .botao_conferir_data {
+        order: 2; /* Move o botão para a primeira linha */
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: white;
+        padding: 10px;
+      }
+    
+      .botao_conferir_data button {
+        margin: 0;
+      }
+}
+
+@media screen and (max-width: 880px) {
+    header{
+        position: relative;
+    }
+    .container {
+        padding: 0 2%;
+    }
+    .imoveis-detalhes {
+        padding: 0 2%;
+    }
+    .navbar {
+        padding: 0 2%;
+      }
+      .coluna-direita {
+        position: relative;
+        width: 50%;
+        /* Ou qualquer largura desejada para a coluna direita */
+        float: right;
+        /* Posiciona a coluna à direita */
+        flex-basis: 40%;
+    }
+    .coluna-esquerda {
+        flex-basis: 55%;
+        padding-right: 20px;
+        /* Adicione algum espaçamento à direita para separar do formulário */
+    }
+      .calculo-reserva {
+        width: 100% !important;
+        position: sticky !important;
+        top: var(--navigation-bar-offset, 80px) !important;
+        z-index: 1 !important;
+        display: inline-block !important;
+        padding-right: 1px !important;
+        padding: 20px;
+        background-color: transparent;
+    
+        border-radius: 8px;
+        margin-top: 20px;
+        border-radius: 1rem;
+    
+        padding: 1.5rem;
+        height: fit-content;
+    }
+    
+    .hospedeiro_inferior {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        align-items: center;
+        
+        
+        border-radius: 0;
+    }
+    .coluna_esquerda_anfitriao {
+        margin-right: 10px;
+        /* Adiciona uma margem à direita para separar as colunas */
+        flex-grow: 1;
+        /* Permite que a coluna cresça conforme necessário */
+    }
+    
+    .coluna_direita_anfitriao {
+        margin-left: 10px;
+        /* Adiciona uma margem à esquerda para separar as colunas */
+        flex-grow: 1;
+        /* Permite que a coluna cresça conforme necessário */
+        padding-right: 15%;
+    }
+    .hospedeiro_inferior .facilidades-botao {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 59px;
+    margin-top: 25px;
+    gap: 8px; /* Adicione espaço entre os itens */
+    width: 75%;
+    text-align: center;
+    padding: 14px;
+    background-color: #222222;
+    color: #ffffff;
+    }
+    .anfitriao_inferior_seguranca .simbolo{
+        margin-right: -29px;
+        /* width: 15%; */
+        width: 95%;
+    }
+
+    
+}
+
+@media screen and (max-width: 750px) {
+    header .container {
+        display: none;
+    }
+    header{
+        display: none;
+    }
+    .imoveis-detalhes{
+        padding: 0 2%;
+    }
+    .imovel-titulo{
+        display: none;
+    }
+    .navbar{
+        display: none;
+    }
+    .galeria{
+        display: none;
+    }
+    .galeria_responsiva {
+        display: flex;
+        overflow-x: auto; /* Adiciona uma barra de rolagem horizontal caso necessário */
+        width: 100%;
+        padding: 0;
+    }
+    
+    .galeria_responsiva img {
+        max-width: 100%; /* Define a largura máxima da imagem como 100% da largura do contêiner */
+        height: auto; /* Mantém a proporção da imagem */
+        margin-right: 10px; /* Adiciona espaço entre as imagens, exceto a última */
+    }
+    
+    /* Remove a margem à direita da última imagem */
+    .galeria_responsiva img:last-child {
+        margin-right: 0;
+    }
+    
+       
+    .cabecalho-responsivo {
+        display: flex;
+        
+        padding: 21px ;
+      }
+    
+      .cabecalho-responsivo div {
+        display: flex;
+        gap: 14px;
+      }
+      .app_header {
+        display: flex;
+        justify-content: space-between; /* Alinha os itens na extremidade oposta */
+        align-items: center; /* Centraliza verticalmente os itens */
+        padding: 21px;
+    }
+    .app_header button{
+        background-color: rgb(0 115 229);
+        color: rgb(255 255 255);
+        border-radius: 24px;
+        padding: 4px 10px;
+    }
+    
+    .usar_aplicativo {
+        display: flex;
+    }
+    
+    .usar_aplicativo div {
+        display: flex;
+        align-items: center; /* Centraliza verticalmente os itens */
+        margin-right: 10px; /* Adiciona um espaçamento entre o ícone e a imagem */
+    }
+    
+    .usar_aplicativo img {
+        height: 32px; /* Ajusta a altura da imagem */
+        width: 32px; /* Ajusta a largura da imagem */
+        margin-right: 5px; /* Adiciona um espaçamento entre o ícone e a imagem */
+    }
+    
+    .info_aplicativo {
+        display: flex;
+        flex-direction: column; /* Empilha os itens verticalmente */
+        justify-content: flex-start; /* Alinha os itens à esquerda */
+    }
+    
+    .info_aplicativo strong {
+        margin-left: -76px; /* Remove a margem padrão do <strong> */
+    }
+    
+    .info_aplicativo strong,
+    .info_aplicativo p {
+        font-size: 14px; /* Define o tamanho da fonte */
+    }
+    .navbar_reservar_responsiva {
+        display: flex;
+        justify-content: space-between; /* Alinha os itens na extremidade oposta */
+        align-items: center; /* Centraliza verticalmente os itens */
+        padding: 21px;
+        position: sticky;
+        bottom: 0; /* Coloca a div na parte inferior da tela */
+        width: 100%; /* Garante que a div ocupe toda a largura da tela */
+        background-color: white; /* Define uma cor de fundo sólida */
+        opacity: 1; /* Garante que a div seja totalmente opaca */
+        border-top: 1px solid #ccc; /* Adiciona uma borda superior cinza */
+    }
+    .navbar_reservar_responsiva button{
+        align-items: center;
+        background: rgb(255, 56, 92);
+        background: linear-gradient(150deg, rgba(255, 56, 92, 1) 0%, rgba(182, 58, 134, 1) 100%);
+        border-radius: 10px;
+        color: #ffffff;
+        flex-direction: column;
+        gap: 8px;
+        margin: 25px 0px 0px 59px;
+        padding: 14px;
+        text-align: center;
+        margin-top: -1px;
+
+    }
+    /* Estilo para a barra de navegação quando estiver fixa na parte inferior */
+    .fixed-bottom {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+    .coluna-direita{
+        display: none;
+    }
+    .coluna-esquerda {
+        flex-basis: 100%;
+        padding-right: 20px;
+        /* Adicione algum espaçamento à direita para separar do formulário */
+    }
+    .lista__avaliacoes{
+        display: none;
+        
+    }
+    .container__avaliacoes {
+        border-bottom: 1px solid white;
+    }
+    .cabecalho__avaliacoes {
+        display: flex;
+        align-items: center; /* Alinha os itens verticalmente */
+        font-size: 14px; /* Define o tamanho da fonte */
+    }
+    
+    .cabecalho__avaliacoes ion-icon {
+        margin-right: 5px; /* Adiciona um espaçamento entre o ícone e o texto */
+    }
+    
+    
+    .comentarios {
+        flex-wrap: nowrap;
+        overflow-x: scroll; 
+    }
+    
+    .locatario {
+        max-width: 100%;
+        margin-bottom: 20px; /* Adicione o espaçamento desejado entre os comentários */
+        border-radius: 4px;
+        box-shadow: #ccc 0px 6px 20px 0px;
+        min-width: 80vw;
+        margin-right: 20px; /* Adicione margem à direita para separar os elementos */
+        padding: 0 2%;
+    }
+    
+    .comentarios .locatario:last-child {
+        margin-right: 0; /* Remove a margem direita apenas da última div .locatario */
+    }
+
+    .avaliacao {
+        align-items: center; /* Alinha os itens verticalmente */
+        font-size: 75%; /* Define o tamanho da fonte */
+        font-weight: bold;
+    }
+    
+    .avaliacao ion-icon {
+        margin-right: 1px; /* Adiciona um espaçamento entre o ícone e o texto */
+    }
+    .diretrizes {
+        order: 7;
+        padding: 0;
+        margin-top: 0;
+      }
+    
+      .diretrizes h2 {
+        display: none;
+      }
+    
+      .diretrizes_container {
+        flex-direction: column;
+      }
+    
+      .diretrizes_container ul {
+        padding-bottom: 16px;
+        margin-bottom: 12px;
+        border-bottom: 1px solid #a4a4a4;
+        gap: 16px;
+      }
+    
+      .diretrizes_container ul:last-of-type {
+        order: 1;
+      }
+    
+      .diretrizes_container ul:first-of-type {
+        order: 2;
+      }
+    
+      .diretrizes_container ul:nth-of-type(2) {
+        order: 3;
+      }
+    
+      .diretrizes_container li {
+        color: #8f8f8f;
+      }
+    
+      .diretrizes_container strong {
+        color: #000;
+        font-size: 1.4rem;
+      }
+
+      
+  .rodape__tres,
+  .rodape__quatro {
+    padding: 35px 3vw;
+  }
+
+  .rodape__tres {
+    flex-direction: column;
+  }
+
+  .rodape__tres ul {
+    flex: 1 1 auto;
+    margin-bottom: 21px;
+  }
+
+  .rodape__quatro {
+    /* margin-bottom: 80px; */
+    flex-direction: column-reverse;
+    align-items: start;
+    gap: 28px;
+  }
+  .local_dormir{
+    display: none;
+  }
+  .onde_vai_dormir{
+    display: flex;
+    margin-top: -3%;
+  }
+  .local_dormir2 {
+    display: grid;
+    max-width: 880px; /* Define a largura máxima */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    overflow-x: auto; /* Adiciona uma barra de rolagem horizontal caso necessário */
+}
+
+.local_dormir__caixa2 {
+    display: flex;
+    flex-wrap: nowrap; /* Evita que as caixas quebrem para a próxima linha */
+    padding: 20px 0; /* Ajuste o preenchimento para espaçamento interno */
+    opacity: 0; /* Inicialmente, as caixas terão opacidade 0 */
+    animation: fadeIn 1s ease forwards; /* Adiciona a animação de fade-in */
+    animation-delay: 0.5s; /* Adiciona um atraso para a animação começar */
+}
+
+.local_dormir__caixa2 .quarto2 {
+    padding: 5%; /* Ajuste o preenchimento interno */
+    border: 1px solid #c0c0c0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #d8d8d8; /* Ajuste a sombra para 0 no eixo X e Y */
+    width: 50%; /* Defina uma largura fixa para cada caixa */
+    flex-shrink: 0; /* Evita que as caixas encolham */
+    margin-right: 20px; /* Espaçamento entre as caixas */
+}
+
+.local_dormir__caixa2 .quarto2 h4 {
+    margin: 10px 0; /* Ajuste as margens internas */
+}
+
+.local_dormir__caixa2 .quarto2 p {
+    color: #717171;
+    margin: 0; /* Remova as margens padrão */
+}
+
+    @keyframes fadeIn {
+        to {
+            opacity: 1; /* Quando a animação terminar, a opacidade será 1 */
+        }
+    }
+
+    .item-1-retangulo-lateral-esquerda h2{
+        font-size: 20px;
+    
+    }
+    
+    
+    
+    
+}
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+    /* Estilos para telas do iPhone SE */
+    .navbar_reservar_responsiva {
+        display: flex;
+        justify-content: space-between; /* Alinha os itens na extremidade oposta */
+        align-items: center; /* Centraliza verticalmente os itens */
+        padding: 21px;
+        position: sticky;
+        bottom: 0; /* Coloca a div na parte inferior da tela */
+        width: 100%; /* Garante que a div ocupe toda a largura da tela */
+        background-color: white; /* Define uma cor de fundo sólida */
+        opacity: 1; /* Garante que a div seja totalmente opaca */
+        border-top: 1px solid #ccc; /* Adiciona uma borda superior cinza */
+    }
+    .navbar_reservar_responsiva button{
+        align-items: center;
+        background: rgb(255, 56, 92);
+        background: linear-gradient(150deg, rgba(255, 56, 92, 1) 0%, rgba(182, 58, 134, 1) 100%);
+        border-radius: 10px;
+        color: #ffffff;
+        flex-direction: column;
+        gap: 8px;
+        margin: 25px 0px 0px 59px;
+        padding: 14px;
+        text-align: center;
+        margin-top: -1px;
+
+    }
+
+    .avaliacao {
+        align-items: center; /* Alinha os itens verticalmente */
+        font-size: 60%; /* Define o tamanho da fonte */
+        font-weight: bold;
+    }
+    
+    .avaliacao ion-icon {
+        margin-right: 1px; /* Adiciona um espaçamento entre o ícone e o texto */
+    }
+      .anfitriao_inferior_seguranca .simbolo{
+        margin-right: -29px;
+        /* width: 15%; */
+        width: 155%;
+    }
+    .anfitriao_inferior_seguranca p {
+        font-size: 0.7rem;
+    }
+    
+  }
+
+  @media screen and (min-width: 1900px) {
+    header{
+        border-bottom: none; /* Remove a borda inferior */
+    }
+    .navbar{
+        border-bottom: none;
+    }
+}
+  
+
+
+
+
+
+
+
+
+
+
+  
